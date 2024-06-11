@@ -1,35 +1,35 @@
 package ru.netology.hw6exercise1.hw6exercise1.stats;
 
 public class StatsService {
-    public int getSalesAmount (int [] sales) {
-        int sum = 0;
-        for(int i = 0; i < sales.length; i++) {
+    public long getSalesAmount(long[] sales) {
+        long sum = 0;
+        for (int i = 0; i < sales.length; i++) {
             sum = sum + sales[i];
         }
         return sum;
     }
 
-    public int getAverageAmount (int [] sales) {
-        int sum = 0;
-        for(int i = 0; i < sales.length; i++) {
+    public long getAverageAmount(long[] sales) {
+        long sum = 0;
+        for (int i = 0; i < sales.length; i++) {
             sum = sum + sales[i];
         }
         return sum / sales.length;
     }
 
-    public int getTheMonthOfMaximumSales (int [] sales) {
+    public int getTheMonthOfMaximumSales(long[] sales) {
         int monthMaxSales = 0;
-        for(int i = 0; i < sales.length; i++) {
-            if (sales[i] >= sales [monthMaxSales]) {
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] >= sales[monthMaxSales]) {
                 monthMaxSales = i;
             }
         }
         return monthMaxSales + 1;
     }
 
-    public int getTheMonthOfMinimumSales (int [] sales) {
+    public int getTheMonthOfMinimumSales(long[] sales) {
         int monthMinSales = 0;
-        for(int i = 0; i < sales.length; i++) {
+        for (int i = 0; i < sales.length; i++) {
             if (sales[i] < sales[monthMinSales]) {
                 monthMinSales = i;
             }
@@ -37,20 +37,22 @@ public class StatsService {
         return monthMinSales + 1;
     }
 
-    public int getMonthsBelowAverage (int [] sales) {
+    public int getMonthsBelowAverage(long[] sales) {
         int belowTheAverage = 0;
-        for(int i = 0; i < sales.length; i++) {
-            if (sales[i] < getAverageAmount (sales)) {
+        long average = getAverageAmount(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] < average) {
                 belowTheAverage++;
             }
         }
         return belowTheAverage;
     }
 
-    public int getMonthsAboveAverage (int [] sales) {
+    public int getMonthsAboveAverage(long[] sales) {
         int aboveTheAverage = 0;
-        for(int i = 0; i < sales.length; i++) {
-            if (sales[i] > getAverageAmount (sales)) {
+        long average = getAverageAmount(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > average) {
                 aboveTheAverage++;
             }
         }
